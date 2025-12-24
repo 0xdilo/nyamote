@@ -5,35 +5,33 @@ use tiny_http::{Response, Server};
 const HTML: &str = r#"<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>nyamote</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;touch-action:none;user-select:none}
-body{background:#1a1a2e;color:#eee;font-family:system-ui;height:100vh;display:flex;flex-direction:column}
-.pad{flex:1;background:#16213e;border-radius:16px;margin:12px;display:flex;align-items:center;justify-content:center;font-size:24px;color:#555}
-.btns{display:flex;gap:12px;padding:0 12px 12px}
-.btn{flex:1;padding:24px;background:#0f3460;border-radius:12px;text-align:center;font-size:18px;font-weight:bold}
-.btn:active{background:#e94560}
-.scroll{display:flex;gap:8px;padding:0 12px 12px}
-.scroll .btn{flex:1;padding:16px}
-.keys{display:flex;gap:8px;padding:0 12px 12px}
-.keys .btn{padding:16px;font-size:14px}
+*{margin:0;padding:0;box-sizing:border-box;touch-action:none;user-select:none;-webkit-tap-highlight-color:transparent}
+body{background:#0d0d0d;color:#fff;font-family:system-ui;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:12px;gap:10px}
+.pad{flex:1;background:#1a1a1a;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#333;text-transform:uppercase;letter-spacing:2px}
+.row{display:flex;gap:10px}
+.btn{flex:1;padding:20px;background:#1a1a1a;border-radius:14px;text-align:center;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.btn:active{background:#e94560;transform:scale(0.98)}
+.small{padding:14px;font-size:12px}
 </style>
 </head>
 <body>
-<div class="pad" id="pad">touch to move</div>
-<div class="btns">
-<div class="btn" id="left">LEFT</div>
-<div class="btn" id="right">RIGHT</div>
+<div class="pad" id="pad">trackpad</div>
+<div class="row">
+<div class="btn" id="left">left click</div>
+<div class="btn" id="right">right click</div>
 </div>
-<div class="scroll">
-<div class="btn" id="su">SCROLL ↑</div>
-<div class="btn" id="sd">SCROLL ↓</div>
+<div class="row">
+<div class="btn small" id="su">scroll up</div>
+<div class="btn small" id="sd">scroll down</div>
 </div>
-<div class="keys">
-<div class="btn" id="space">SPACE</div>
-<div class="btn" id="esc">ESC</div>
-<div class="btn" id="enter">ENTER</div>
+<div class="row">
+<div class="btn small" id="space">space</div>
+<div class="btn small" id="esc">esc</div>
+<div class="btn small" id="enter">enter</div>
 </div>
 <script>
 const s=(u,d)=>fetch('/api',{method:'POST',body:JSON.stringify(d)});
