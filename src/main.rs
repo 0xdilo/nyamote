@@ -120,9 +120,9 @@ fn main() {
             } else if body.contains("\"c\":\"r\"") {
                 ydotool(&["click", "0xC1"]);
             } else if body.contains("\"s\":\"u\"") {
-                ydotool(&["mousemove", "--wheel", "-y", "-3"]);
+                ydotool(&["mousemove", "-w", "--", "0", "-3"]);
             } else if body.contains("\"s\":\"d\"") {
-                ydotool(&["mousemove", "--wheel", "-y", "3"]);
+                ydotool(&["mousemove", "-w", "--", "0", "3"]);
             } else if body.contains("\"k\":\"space\"") {
                 ydotool(&["key", "57:1", "57:0"]);
             } else if body.contains("\"k\":\"esc\"") {
