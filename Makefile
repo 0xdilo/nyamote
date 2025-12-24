@@ -1,6 +1,7 @@
 .PHONY: build install clean
 
-build: clean
+build:
+	rm -rf target
 	cargo build --release
 	upx --best --lzma target/release/nyamote
 
