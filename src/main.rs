@@ -102,12 +102,11 @@ fn main() {
                         .split(',')
                         .filter_map(|s| s.trim().parse().ok())
                         .collect();
-                    if coords.len() == 2 {
+                    if coords.len() == 2 && (coords[0] != 0 || coords[1] != 0) {
                         ydotool(&[
                             "mousemove",
-                            "-x",
+                            "--",
                             &coords[0].to_string(),
-                            "-y",
                             &coords[1].to_string(),
                         ]);
                     }
