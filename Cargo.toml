@@ -1,0 +1,17 @@
+[package]
+name = "nyamote"
+version = "0.1.0"
+edition = "2021"
+description = "smol phone-to-pc remote mouse control :3"
+license = "MIT"
+repository = "https://github.com/0xdilo/nyamote"
+
+[dependencies]
+tiny_http = "0.12"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
