@@ -68,7 +68,11 @@ fn get_local_ip() -> String {
 }
 
 fn ydotool(args: &[&str]) {
-    let _ = Command::new("ydotool").args(args).spawn();
+    let _ = Command::new("ydotool")
+        .args(args)
+        .stdout(std::process::Stdio::null())
+        .stderr(std::process::Stdio::null())
+        .spawn();
 }
 
 fn main() {
