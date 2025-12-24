@@ -200,7 +200,12 @@ fn main() {
                 if let Some(start) = body.find("\"t\":\"") {
                     if let Some(end) = body[start + 5..].find('"') {
                         let text = &body[start + 5..start + 5 + end];
-                        ydotool(&["type", "--", text]);
+                        let _ = Command::new("wl-copy")
+                            .arg(text)
+                            .stdout(std::process::Stdio::null())
+                            .stderr(std::process::Stdio::null())
+                            .status();
+                        ydotool(&["key", "29:1", "47:1", "47:0", "29:0"]);
                     }
                 }
             }
