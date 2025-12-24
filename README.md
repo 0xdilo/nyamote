@@ -22,7 +22,8 @@ control your pc from your phone :3
 - touch pad to move mouse
 - left/right click buttons
 - scroll up/down
-- space, esc, enter keys
+- keyboard mode with text input
+- arrow keys, tab, backspace, enter, esc, space
 - works on wayland & x11
 
 ## requirements
